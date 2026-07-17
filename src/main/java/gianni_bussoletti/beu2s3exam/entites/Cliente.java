@@ -2,10 +2,7 @@ package gianni_bussoletti.beu2s3exam.entites;
 
 import gianni_bussoletti.beu2s3exam.enums.Role;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -15,6 +12,7 @@ import java.util.UUID;
 @ToString
 @Getter
 @Setter
+@NoArgsConstructor
 public class Cliente {
     @Id
     @GeneratedValue

@@ -33,4 +33,5 @@ public class ClienteController {
         Cliente save = this.clienteService.save(body);
         return new ClienteResponseDTO("Cliente registrato correttamente", save.getId(), LocalDateTime.now());
     }
+
 }
