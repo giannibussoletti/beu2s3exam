@@ -33,6 +33,7 @@ public class Cliente {
     @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public Cliente(String name, String surname, String mail, String password, LocalDate birthDate) {
