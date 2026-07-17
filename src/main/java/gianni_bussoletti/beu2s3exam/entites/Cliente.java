@@ -34,12 +34,13 @@ public class Cliente {
     private LocalDate birthDate;
     @Column(nullable = false)
     private Role role;
-    public Cliente(String name, String surname, String mail, String password, String avatarURL, LocalDate birthDate) {
+
+    public Cliente(String name, String surname, String mail, String password, LocalDate birthDate) {
         this.name = name;
         this.surname = surname;
         this.mail = mail;
         this.password = password;
-        this.avatarURL = avatarURL;
+        this.avatarURL = "https://placehold.co/200?text=" + this.name;
         this.birthDate = birthDate;
         this.role = Role.CLIENTE;
     }
