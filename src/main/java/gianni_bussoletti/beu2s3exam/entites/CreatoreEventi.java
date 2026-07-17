@@ -1,16 +1,14 @@
 package gianni_bussoletti.beu2s3exam.entites;
 
 import gianni_bussoletti.beu2s3exam.enums.Role;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
+@Table(name = "creatori")
 public class CreatoreEventi {
 
     @Id
@@ -26,6 +24,7 @@ public class CreatoreEventi {
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     public CreatoreEventi(String name, String surname, String mail, String password) {
