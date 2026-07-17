@@ -13,4 +13,6 @@ public interface CreatoreRepository extends JpaRepository<CreatoreEventi, UUID> 
     boolean existsByMail(String email);
 
     Optional<CreatoreEventi> findCreatoreEventiByMail(String mail);
+
+    Optional<CreatoreEventi> findCreatoreEventiById(UUID id);
 }
