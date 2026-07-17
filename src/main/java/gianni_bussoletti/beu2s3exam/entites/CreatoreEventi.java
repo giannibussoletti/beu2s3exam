@@ -3,12 +3,17 @@ package gianni_bussoletti.beu2s3exam.entites;
 import gianni_bussoletti.beu2s3exam.enums.Role;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "creatori")
+@NoArgsConstructor
+@Getter
+@Setter
 public class CreatoreEventi {
 
     @Id

@@ -1,0 +1,21 @@
+package gianni_bussoletti.beu2s3exam.DTO;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+public record CreatoreDTO(
+        @NotBlank(message = "Il campo non può essere lasciato vuoto")
+        @Size(min = 2, max = 40, message = "Il nome deve essere fra un minimo di 2 lettere ed un massimo di 40")
+        String name,
+        @Size(min = 2, max = 40, message = "Il cognonome deve essere fra un minimo di 2 lettere ed un massimo di 40")
+        @NotBlank(message = "Il campo non può essere lasciato vuoto")
+        String surname,
+        @NotBlank(message = "Il campo non può essere lasciato vuoto")
+        @Email(message = "L'email non rispetta i requisiti minimi")
+        String mail,
+        @NotBlank(message = "Il campo non può essere lasciato vuoto")
+        @Size(min = 8, message = "La password deve avere almeno 8 caratteri")
+        String password
+) {
+}
