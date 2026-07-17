@@ -17,8 +17,14 @@ public class AuthControllers {
     private final AuthService authService;
 
     @PostMapping("/login/clienti")
-    public LoginResponseDTO login(@RequestBody LoginDTO body) {
+    public LoginResponseDTO loginClient(@RequestBody LoginDTO body) {
         String token = this.authService.credControlGenerateToken(body);
+        return new LoginResponseDTO(token);
+    }
+
+    @PostMapping("/login/creatori")
+    public LoginResponseDTO loginCreator(@RequestBody LoginDTO body) {
+        String token = this.authService.credControlGenerateTokenCreator(body);
         return new LoginResponseDTO(token);
     }
 

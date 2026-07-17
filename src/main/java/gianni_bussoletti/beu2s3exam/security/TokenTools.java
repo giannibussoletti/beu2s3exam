@@ -1,6 +1,7 @@
 package gianni_bussoletti.beu2s3exam.security;
 
 import gianni_bussoletti.beu2s3exam.entites.Cliente;
+import gianni_bussoletti.beu2s3exam.entites.CreatoreEventi;
 import gianni_bussoletti.beu2s3exam.exceptions.UnathorizedException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -17,7 +18,7 @@ public class TokenTools {
         this.secret = secret;
     }
 
-    public String tokenGenerator(Cliente cliente) {
+    public String tokenGeneratorClient(Cliente cliente) {
         return Jwts.builder()
                 .issuedAt(new Date((System.currentTimeMillis())))
                 .expiration(new Date((System.currentTimeMillis()) + 1000 * 60 * 60 * 24))
@@ -25,6 +26,17 @@ public class TokenTools {
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
                 .compact();
     }
+    public String tokenGeneratorCreator(CreatoreEventi creatore) {
+        return Jwts.builder()
+                .issuedAt(new Date((System.currentTimeMillis())))
+                .expiration(new Date((System.currentTimeMillis()) + 1000 * 60 * 60 * 24))
+                .subject(String.valueOf(creatore.getId()))
+                .signWith(Keys.hmacShaKeyFor(secret.getBytes()))
+                .compact();
+    }
+
+
+
 
 
     public void tokenVerify(String token) {
