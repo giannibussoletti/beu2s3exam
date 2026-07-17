@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 @AllArgsConstructor
 public class CreatoreService {
@@ -28,5 +30,9 @@ public class CreatoreService {
 
     public CreatoreEventi findByEmail(String mail) {
         return this.creatoreRepository.findCreatoreEventiByMail(mail).orElseThrow(() -> new NotFoundException("L'email non è stata trovata"));
+    }
+
+    public CreatoreEventi findById(UUID id) {
+        return this.creatoreRepository.findCreatoreEventiById(id).orElseThrow(() -> new NotFoundException("Creatore eventi non trovato"));
     }
 }
