@@ -8,7 +8,6 @@ import gianni_bussoletti.beu2s3exam.security.TokenTools;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @AllArgsConstructor
@@ -19,14 +18,14 @@ public class AuthService {
     private PasswordEncoder bcrypt;
     private CreatoreService creatoreService;
 
-    public String credControlGenerateToken(@RequestBody LoginDTO body) {
+    public String credControlGenerateToken(LoginDTO body) {
         Cliente found = this.clienteService.findByEmail(body.mail());
         if (this.bcrypt.matches(body.password(), found.getPassword())) {
             return this.tController.tokenGeneratorClient(found);
         } else throw new UnathorizedException("La password è sbagliata");
     }
 
-    public String credControlGenerateTokenCreator(@RequestBody LoginDTO body) {
+    public String credControlGenerateTokenCreator(LoginDTO body) {
         CreatoreEventi found = this.creatoreService.findByEmail(body.mail());
         if (this.bcrypt.matches(body.password(), found.getPassword())) {
             return this.tController.tokenGeneratorCreator(found);

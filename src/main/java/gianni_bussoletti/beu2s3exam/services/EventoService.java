@@ -22,7 +22,7 @@ public class EventoService {
 
     public Evento save(EventoDTO body, CreatoreEventi creatoreEventi) {
         Evento newEvento = new Evento(body.nome(), body.descrizione(), body.descrizione(), body.data(), body.postiDisponibili(), creatoreEventi);
-        return eventoRepository.save(newEvento);
+        return this.eventoRepository.save(newEvento);
     }
 
     public Page<Evento> findAllEventi(int page, int size, String orderBy) {
